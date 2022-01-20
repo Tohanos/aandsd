@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class NotebookSort {
 
     public static void main(String[] args) {
-        Notebook[] notebooks = new Notebook[100];
+        Notebook[] notebooks = new Notebook[10000];
         for (int i = 0; i < notebooks.length; i++) {
             notebooks[i] = Notebook.generateRandom();
         }
