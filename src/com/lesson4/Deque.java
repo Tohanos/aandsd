@@ -112,7 +112,6 @@ public class Deque<T> implements Iterable<T> {
             this.last = null;
         } else {
             this.last.prev.next = null;
-            //this.last.prev = null;
             this.last = this.last.prev;
         }
         this.numberOfItems--;
@@ -124,44 +123,58 @@ public class Deque<T> implements Iterable<T> {
         return new DequeIterator();
     }
 
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        Node current = first;
+        int position = 0;
+        while (position < numberOfItems) {
+            result.append(current.item.toString()).append(" ");
+            current = current.next;
+            position++;
+        }
+
+        return result.toString();
+    }
+
     public static void main(String[] args) {
 
-        Deque<Integer> deq1 = new Deque<>();
+        Deque<Integer> deque = new Deque<>();
 
-        System.out.println("Дека: " + deq1);
-        System.out.println("Размер: " + deq1.size());
+        System.out.println("Дека: " + deque);
+        System.out.println("Размер: " + deque.size());
 
-        deq1.addFirst(1);
-        deq1.addFirst(2);
-        deq1.addFirst(3);
-        deq1.addFirst(4);
-        deq1.addFirst(5);
-        deq1.addFirst(6);
+        deque.addFirst(1);
+        deque.addFirst(2);
+        deque.addFirst(3);
+        deque.addFirst(4);
+        deque.addFirst(5);
+        deque.addFirst(6);
 
 
-        System.out.println("Дека: " + deq1);
+        System.out.println("Дека: " + deque);
 
-        deq1.removeLast();
-        System.out.println("Дека: " + deq1);
+        deque.removeLast();
+        System.out.println("Дека: " + deque);
 
-        deq1.removeFirst();
-        System.out.println("Дека: " + deq1);
-        System.out.println("Размер: " + deq1.size());
+        deque.removeFirst();
+        System.out.println("Дека: " + deque);
+        System.out.println("Размер: " + deque.size());
 
-        deq1.addFirst(1);
-        deq1.addLast(2);
-        System.out.println("Дека: " + deq1);
+        deque.addFirst(1);
+        deque.addLast(2);
+        System.out.println("Дека: " + deque);
 
-        deq1.addFirst(3);
-        deq1.addLast(4);
-        System.out.println("Дека: " + deq1);
+        deque.addFirst(3);
+        deque.addLast(4);
+        System.out.println("Дека: " + deque);
 
-        System.out.println("Размер: " + deq1.size());
+        System.out.println("Размер: " + deque.size());
 
-        Iterator<Integer> itr = deq1.iterator();
+        Iterator<Integer> iterator = deque.iterator();
 
-        System.out.println(itr.next());
-        System.out.println(itr.next());
+        System.out.println(iterator.next());
+        System.out.println(iterator.next());
 
     }
 
